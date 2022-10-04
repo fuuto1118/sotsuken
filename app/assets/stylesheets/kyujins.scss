@@ -16,6 +16,8 @@
     white-space: pre;
 }
 
+
+
 //form 画面
 .midashi{
     text-align: center;
@@ -52,14 +54,14 @@
     height: 40px;
     }
 }
-.action {
+.f_submit {
     font-style: normal;
     font-size: 20px;
     text-align: center;
     position: relative;
     padding: 10px 20px;
     margin: auto 20px;
-    top: 480px;
+    top: 510px;
     left: 600px;
     width: 80px;
     height: 30px;
@@ -71,7 +73,7 @@
     border-bottom: solid 5px #627295;
     border-radius: 5px;
 }
-.action:active{
+.f_submit:active{
     /*ボタンを押したとき*/
     -webkit-transform: translateY(6px);
     transform: translateY(4px);/*下に動く*/
@@ -98,6 +100,8 @@ span{
 span1{
     color: #FFF;
 }
+
+
 
 //show 画面
 h2{
