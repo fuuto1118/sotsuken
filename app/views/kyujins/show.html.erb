@@ -1,0 +1,51 @@
+<h2><strong>※この内容でよろしいですか</strong></h2>
+<div class="s_table">
+  <table border="1" cellspacing="0">
+    <tr class="s_tr">
+      <th><strong>会社名・団体名</strong></th>
+      <td><%= @kyujin.kaisya %></td>
+    </tr>
+    <tr class="s_tr">
+      <th><strong>業種</strong></th>
+      <td><%= @kyujin.jigyou %></td>
+  </tr>
+  <tr class="s_tr">
+      <th><strong>所在地</strong></th>
+      <td><%= @kyujin.jusyo %></td>
+</tr>
+<tr class="s_tr">
+      <th><strong>勤務地</strong></th>
+      <td><%= @kyujin.kinmuti %></td>
+</tr>
+<tr class="s_tr">
+      <th><strong>職種</strong></th>
+      <td><%= @kyujin.syokusyu %></td>
+</tr>
+<tr class="s_tr">
+      <th><strong>採用人数</strong></th>
+      <td><%= @kyujin.bosyu %></td>
+</tr>
+<tr class="s_tr">
+      <th><strong>給与</strong></th>
+      <td><%= @kyujin.kyuyo %></td>
+</tr>
+<tr class="s_tr">
+      <th><strong>備考</strong></th>
+      <td><%= @kyujin.biko %></td>
+  </tr>
+  </table>
+</div>
+
+<div class="back">
+<%= link_to "戻る", :back %> 
+</div>
+
+<div class="action">
+<%= link_to '送信', kyujins_path %>
+</div>
+
+<div class="step" >
+<div class="proc-step" id="proc-step-input">1&nbsp;情報入力</div>
+<div class="proc-step" id="proc-step-confirm">2&nbsp;確認内容</div>
+<div class="proc-step" id="proc-step-finish">3&nbsp;完了</div>
+</div>

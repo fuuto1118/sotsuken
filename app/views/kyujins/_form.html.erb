@@ -1,0 +1,75 @@
+<%= form_with(model: kyujin, local: true ,html: {name: "form"}) do |form| %>
+  <% if kyujin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(kyujin.errors.count, "error") %> prohibited this kyujin from being saved:</h2>
+
+      <ul>
+        <% kyujin.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="midashi">
+    <p>本校への求人ついて。<br>
+      当学校の在校生、または卒業生への求人がございましたら下記フォームより求人募集としてお寄せください。<br><br>
+      <span>※</span>印の項目は入力必須となっています。漏れのないように入力してください。<br>
+    </p>
+  </div>
+<div class="f_step">
+<div class="step" >
+<div class="proc-step" id="proc-step-input">1&nbsp;情報入力</div>
+<div class="proc-step" id="proc-step-confirm">2&nbsp;確認内容</div>
+<div class="proc-step" id="proc-step-finish">3&nbsp;完了</div>
+</div>
+</div>
+
+  <div class="f_table">
+    <table border="1" cellspacing="0">
+    <tr class="field">
+      <th><%= form.label :kaisya,"会社名・団体名" %></th>
+      <td><%= form.text_field :kaisya %></td>
+
+    <tr class="field">
+      <th><%= form.label :jigyou,"事業内容" %></th>
+      <td><%= form.text_field :jigyou %></td>
+    </tr>
+
+      <tr class="field">
+      <th><%= form.label :jusyo,"住所*（例：東京都杉並区梅里）" %></th>
+      <td><%= form.text_field :jusyo %></td>
+    </tr>
+
+    <tr class="field">
+      <th><%= form.label :bosyu,"募集人数" %></th>
+      <td><%= form.text_field :bosyu %>人</td>
+    </tr>
+
+    <tr class="field">
+      <th><%= form.label :syokusyu,"職種" %></th>
+    <td><%= form.select :syokusyu, ['sample1', 'sample2', 'sample3'], {include_blank: '選択してください'}, 
+    class: 'field' %></td></tr>
+    </tr>
+
+    <tr class="field">
+      <th><%= form.label :kinmuti,"勤務地" %></th>
+      <td><%= form.text_field :kinmuti %></td>
+    </tr>
+
+    <tr class="field">
+      <th><%= form.label :kyuyo,"給与" %></th>
+      <td><%= form.text_field :kyuyo %>円</td>
+    </tr>
+
+    <tr class="field">
+      <th><%= form.label :biko,"備考" %></th>
+      <td><%= form.text_area :biko %></td>
+    </tr>
+    </table>
+  </div>
+
+
+<a href="javascript:form.submit()" class="action">送信</a>
+
+<% end %>

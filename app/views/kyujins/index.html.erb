@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>求人情報一覧</h1>
+<div class="table">
+  <table>
+    <table border="1" cellspacing="0">
+      <tr class="title">
+        <td width="200">会社名</td>
+        <td width="100">業種</td>
+        <td width="120">所在地</td>
+        <td width="150">勤務地</td>
+        <td width="100">職種</td>
+        <td width="30">採用人数</td>
+        <td width="40">給与</td>
+        <td width="350">備考</td>
+      </tr>
+    </div>
+  <tbody>
+    <% @kyujins.each do |kyujin| %>
+      <tr>
+        <td><%= link_to kyujin.kaisya, kyujin %></td>
+        <td><%= kyujin.jigyou %></td>
+        <td><%= link_to kyujin.jusyo, kyujin %></td>
+        <td><%= kyujin.kinmuti %></td>
+        <td><%= kyujin.syokusyu %></td>
+        <td><%= kyujin.bosyu %></td>
+        <td><%= kyujin.kyuyo %></td>
+        <td><%= kyujin.biko %></td>
+
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br><br><br><br><br><br><br><br>
+<%= link_to '求人', new_kyujin_path %>

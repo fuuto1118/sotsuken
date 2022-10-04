@@ -1,0 +1,47 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kaisya: MyString
+  furigana: MyString
+  yubin: 1
+  jusyo: MyString
+  banchi: 1
+  jigyou: MyText
+  tantou: MyString
+  denwa: 1
+  fax: 1
+  mail: MyString
+  home: MyString
+  bosyu: 1
+  syokusyu: MyString
+  saiyoujo: MyString
+  kinmuti: MyString
+  kinmuzikan: MyText
+  kyuyo: 1
+  syoyo: 1
+  nenkankyu: 1
+  oubo: MyText
+  biko: MyText
+
+two:
+  kaisya: MyString
+  furigana: MyString
+  yubin: 1
+  jusyo: MyString
+  banchi: 1
+  jigyou: MyText
+  tantou: MyString
+  denwa: 1
+  fax: 1
+  mail: MyString
+  home: MyString
+  bosyu: 1
+  syokusyu: MyString
+  saiyoujo: MyString
+  kinmuti: MyString
+  kinmuzikan: MyText
+  kyuyo: 1
+  syoyo: 1
+  nenkankyu: 1
+  oubo: MyText
+  biko: MyText

@@ -1,0 +1,2 @@
+class Kyujin < ApplicationRecord
+end
