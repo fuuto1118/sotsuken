@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_14_043746) do
+ActiveRecord::Schema.define(version: 2022_11_01_051128) do
 
   create_table "kyujins", force: :cascade do |t|
     t.string "kaisya"
@@ -34,6 +34,36 @@ ActiveRecord::Schema.define(version: 2022_09_14_043746) do
     t.integer "nenkankyu"
     t.text "oubo"
     t.text "biko"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "shigoto"
+    t.string "syozaichi"
+    t.integer "zyugyoin"
+    t.integer "teate"
+    t.string "kikan"
+    t.string "senko"
+    t.string "rirekisyo"
+    t.boolean "honsyaz"
+    t.boolean "shitenz"
+    t.boolean "coujous"
+    t.boolean "jakan"
+    t.text "others"
+    t.boolean "rireki"
+    t.boolean "sotsumi"
+    t.boolean "seiseki"
+    t.boolean "kenko"
+    t.boolean "sui"
+    t.boolean "nashi"
+    t.boolean "zuiji"
+    t.boolean "shitebii"
+  end
+
+  create_table "migrations", force: :cascade do |t|
+    t.string "AddDateToKyujins"
+    t.integer "honsyas"
+    t.integer "shitens"
+    t.integer "cojous"
+    t.string "kinmusonotas"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

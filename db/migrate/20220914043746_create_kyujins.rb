@@ -22,6 +22,11 @@ class CreateKyujins < ActiveRecord::Migration[6.0]
       t.integer :nenkankyu
       t.text :oubo
       t.text :biko
+      t.boolean :honsyas, default: false
+      t.boolean :shitens
+      t.boolean :cojous
+      t.string :kinmusonotas
+
 
       t.timestamps
     end

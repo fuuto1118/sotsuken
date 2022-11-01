@@ -1,0 +1,42 @@
+<%= form_with(model: migration, local: true) do |form| %>
+  <% if migration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(migration.errors.count, "error") %> prohibited this migration from being saved:</h2>
+
+      <ul>
+        <% migration.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :AddDateToKyujins %>
+    <%= form.text_field :AddDateToKyujins %>
+  </div>
+
+  <div class="field">
+    <%= form.label :honsyas %>
+    <%= form.number_field :honsyas %>
+  </div>
+
+  <div class="field">
+    <%= form.label :shitens %>
+    <%= form.number_field :shitens %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cojous %>
+    <%= form.number_field :cojous %>
+  </div>
+
+  <div class="field">
+    <%= form.label :kinmusonotas %>
+    <%= form.text_field :kinmusonotas %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

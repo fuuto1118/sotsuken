@@ -1,75 +1,162 @@
-<%= form_with(model: kyujin, local: true ,html: {name: "form"}) do |form| %>
-  <% if kyujin.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(kyujin.errors.count, "error") %> prohibited this kyujin from being saved:</h2>
-
-      <ul>
-        <% kyujin.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class = "html1">
+  <%= form_with(model: @kyujin, local: true ,html: {name: "form"}) do |form| %>
 
   <div class="midashi">
     <p>本校への求人ついて。<br>
       当学校の在校生、または卒業生への求人がございましたら下記フォームより求人募集としてお寄せください。<br><br>
       <span>※</span>印の項目は入力必須となっています。漏れのないように入力してください。<br>
+      数字を記入する際には半角で入力してください
     </p>
   </div>
-<div class="f_step">
-<div class="step" >
-<div class="proc-step" id="proc-step-input">1&nbsp;情報入力</div>
-<div class="proc-step" id="proc-step-confirm">2&nbsp;確認内容</div>
-<div class="proc-step" id="proc-step-finish">3&nbsp;完了</div>
-</div>
-</div>
 
-  <div class="f_table">
-    <table border="1" cellspacing="0">
-    <tr class="field">
-      <th><%= form.label :kaisya,"会社名・団体名" %></th>
-      <td><%= form.text_field :kaisya %></td>
+  <%= image_tag '素材1.png', class: 'img1'%>
 
-    <tr class="field">
-      <th><%= form.label :jigyou,"事業内容" %></th>
-      <td><%= form.text_field :jigyou %></td>
-    </tr>
+    <div class="f_table">
+      <table border="1" cellspacing="0">
 
       <tr class="field">
-      <th><%= form.label :jusyo,"住所*（例：東京都杉並区梅里）" %></th>
-      <td><%= form.text_field :jusyo %></td>
-    </tr>
+        <th>求人者<span class="gami">※</span></th>
+        <td>ふりがな<%= form.text_field :furigana %><br>
+        会社名・団体名<%= form.text_field :kaisya %><br>
+        担当者名<%= form.text_field :tantou %><br>
+        電話番号（例:0853-72-2500）<%= form.text_field :denwa %><br>
+        メールアドレス(任意)<%= form.text_field :mail %><br>
+        </td>
+      </tr>
 
-    <tr class="field">
-      <th><%= form.label :bosyu,"募集人数" %></th>
-      <td><%= form.text_field :bosyu %>人</td>
-    </tr>
 
-    <tr class="field">
-      <th><%= form.label :syokusyu,"職種" %></th>
-    <td><%= form.select :syokusyu, ['sample1', 'sample2', 'sample3'], {include_blank: '選択してください'}, 
-    class: 'field' %></td></tr>
-    </tr>
+      <tr class="field">
+        <th><%= form.label :jigyou,"事業内容" %></th>
+        <td><%= form.text_field :jigyou %></td>
+      </tr>
 
-    <tr class="field">
-      <th><%= form.label :kinmuti,"勤務地" %></th>
-      <td><%= form.text_field :kinmuti %></td>
-    </tr>
+        <tr class="field">
+        <th>所在地<span class="gami">※</span></th>
+        <td>郵便番号<br><%= form.text_field :yubin %><br>
+        住所（例:島根県出雲市斐川町富村1000-8）<%= form.text_field :jusyo %></td>
+      </tr>
 
-    <tr class="field">
-      <th><%= form.label :kyuyo,"給与" %></th>
-      <td><%= form.text_field :kyuyo %>円</td>
-    </tr>
 
-    <tr class="field">
-      <th><%= form.label :biko,"備考" %></th>
-      <td><%= form.text_area :biko %></td>
-    </tr>
+      <tr class="field">
+        <th>職種<span class="gami">※</span></th>
+      <td><%= form.select :syokusyu, ['IT・Web', '医療', '介護福祉','教育・保育・研究','販売・接客・サービス','運輸・物流','製造・整備','土地・建物','美容・ファッション','出版・広告・マスコミ','金融・保険','オフィス系','警察・消防・セキュリティ','その他'], {include_blank: '選択してください'}, 
+      class: 'field' %></td></tr>
+      </tr>
+
+      <tr>
+        <th><%= form.label :bosyu,"求人数" %></th>
+        <td><%= form.text_field :bosyu , size: 10 %>人
+        <%= form.check_box :jakan %>
+        <%= form.label :jakan,"若干名" %><br>※採用人員が若干名の場合は、「若干名」にチェックを入れてください。
+        </td>
+      </tr>
+
+      <tr class="field">
+        <th><%= form.label :shigoto,"仕事内容" %></th>
+        <td><%= form.text_field :shigoto %></td>
+      </tr>
+
+      <tr class="field">
+        <th>勤務先<span class="gami">※</span></th>
+        <td>
+  <ul>
+    <li>
+          <%= form.check_box :honsyaz %>
+          <%= form.label :honsyaz,"本社" %>
+    </li>
+    <li>
+          <%= form.check_box(:shitenz) %>
+          <%= label_tag(:shitenz,"支店") %>
+    </li>
+    <li>
+          <%= form.check_box(:coujous) %>
+          <%= label_tag(:coujous,"工場") %>
+    </li>
+
+
+  </ul>
+        その他<br><%= form.text_field :others %></td>
+      </tr>
+
+      <tr>
+        <th><%= form.label :zyugyoin,"従業員数" %></th>
+        <td><%= form.text_field :zyugyoin , size: 10 %>人</td>
+      </tr>
+
+      <tr>
+        <th><%= form.label :kinmuzikan,"勤務時間" %></th>
+        <td> 平日<br>
+        <%= form.text_field :kinmuzikan, size: 3 %>時
+        <%= form.text_field :kinmuzikan, size: 3 %>分   ~    
+        <%= form.text_field :kinmuzikan, size: 3 %>時
+        <%= form.text_field :kinmuzikan, size: 3 %>分まで<br>
+        土・日・祝<br>
+        <%= form.text_field :kinmuzikan, size: 3 %>時
+        <%= form.text_field :kinmuzikan, size: 3 %>分   ~    
+        <%= form.text_field :kinmuzikan, size: 3 %>時
+        <%= form.text_field :kinmuzikan, size: 3 %>分まで</td>
+      </tr>
+
+      <tr>
+        <th><%= form.label :kyuyo,"給与" %></th>
+        <td><%= form.text_field :kyuyo , size: 10 %>円</td>
+      </tr>
+
+      <tr>
+        <th><%= form.label :teate,"手当" %></th>
+        <td><%= form.text_field :teate , size: 10 %>円</td>
+      </tr>
+
+      <tr class="field">
+        <th><%= form.label :oubo,"応募書類" %></th>
+        <td><%= check_box_tag :oubo %>
+        <%= label_tag :oubo, "履歴書" %>
+        <%= check_box_tag :oubo %>
+        <%= label_tag :oubo, "卒業見込証明書"%>
+        <%= check_box_tag :oubo %>
+        <%= label_tag :oubo, "成績証明書" %><br>
+        <%= check_box_tag :oubo %>
+        <%= label_tag :oubo, "健康診断書" %>
+        <%= check_box_tag :oubo %>
+        <%= label_tag :oubo, "推薦書" %></td>
+      </tr>
+
+      <tr>
+        <th><%= form.label :kikan,"応募締め切り" %></th>
+        <td><%= check_box_tag :kikan %>
+        <%= label_tag :kikan, "なし" %>
+        <%= check_box_tag :kikan %>
+        <%= label_tag :kikan, "随時" %><br>
+        <%= check_box_tag :kikan %>
+        <%= label_tag :kikan, "指定日" %><br>
+        <%= form.text_field :kikan, size: 3 %>月
+        <%= form.text_field :kikan, size: 3 %>日   ~    
+        <%= form.text_field :kikan, size: 3 %>月
+        <%= form.text_field :kikan, size: 3 %>日
+        </td>
+      </tr>
+
+      <tr class="field">
+        <th><%= form.label :senko,"選考方法" %></th>
+        <td><%= form.text_field :senko %></td>
+      </tr>
+
+      <tr class="field">
+        <th><%= form.label :senko,"履歴書" %></th>
+        <td><%= form.text_field :senko %></td>
+      </tr>     
+
+      <div class="kaigyo">
+        <tr class="field">
+          <th><%= form.label :biko,"備考" %></th>
+          <td><%= form.text_area :biko, :size=>"40x5" %></td>
+        </tr>
+      </div>
     </table>
   </div>
 
-
-<a href="javascript:form.submit()" class="f_submit">送信</a>
+  <%= form.submit "完了"%>
+<%# <a href="javascript:form.submit()" class="f_submit">送信</a> %>
 
 <% end %>
+</div>

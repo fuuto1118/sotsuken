@@ -8,8 +8,20 @@ class KyujinsController < ApplicationController
 
   # GET /kyujins/1 or /kyujins/1.json
   def show
+    if request.post? then
+      if params["check"] then
+        @value = "本社"
+      elsif
+        @value = "支店"
+      else 
+        @value = "工場"
+      end
+    end
   end
 
+
+  def confirmation
+  end
   # GET /kyujins/new
   def new
     @kyujin = Kyujin.new
@@ -18,6 +30,16 @@ class KyujinsController < ApplicationController
   # GET /kyujins/1/edit
   def edit
   end
+
+  def self.hankaku?(str)
+    return nil if str.nil?
+    # 半角のみOKなので、全角が混ざっているとfalseが返る
+    unless str.to_s =~ /^[ -~｡-ﾟ]*$/
+      return false
+    end
+  return true
+  end
+
 
   # POST /kyujins or /kyujins.json
   def create
@@ -33,7 +55,6 @@ class KyujinsController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @kyujin.errors, status: :unprocessable_entity }
       end
-
     end
   end
 
@@ -68,6 +89,6 @@ class KyujinsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def kyujin_params
-      params.require(:kyujin).permit(:kaisya, :furigana, :yubin, :jusyo, :banchi, :jigyou, :tantou, :denwa, :fax, :mail, :home, :bosyu, :syokusyu, :saiyoujo, :kinmuti, :kinmuzikan, :kyuyo, :syoyo, :nenkankyu, :oubo, :biko)
+      params.require(:kyujin).permit(:kaisya, :furigana, :yubin, :jusyo, :banchi, :jigyou, :tantou, :denwa, :fax, :mail, :home, :bosyu, :syokusyu, :saiyoujo, :kinmuti, :kinmuzikan, :kyuyo, :syoyo, :nenkankyu, :oubo, :biko,:honsyaz,:shitenz,:coujous,:jakan,:others)
     end
-end
+  end

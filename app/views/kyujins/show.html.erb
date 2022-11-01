@@ -1,51 +1,131 @@
+<div class = "html2">
 <h2><strong>※この内容でよろしいですか</strong></h2>
+
+  <%= image_tag '素材2.png', class: 'img2'%>
+
 <div class="s_table">
   <table border="1" cellspacing="0">
+    <tr class="s_tr">
+      <th><strong>ふりがな</strong></th>
+      <td><%= @kyujin.furigana %></td>
+    </tr>
+
     <tr class="s_tr">
       <th><strong>会社名・団体名</strong></th>
       <td><%= @kyujin.kaisya %></td>
     </tr>
+
     <tr class="s_tr">
-      <th><strong>業種</strong></th>
+      <th><strong>担当者名</strong></th>
+      <td><%= @kyujin.tantou %></td>
+    </tr>
+
+    <tr class="s_tr">
+      <th><strong>電話番号</strong></th>
+      <td><%= @kyujin.denwa %></td>
+    </tr>
+
+    <tr class="s_tr">
+      <th><strong>メールアドレス</strong></th>
+      <td><%= @kyujin.mail %></td>
+    </tr>
+
+    <tr class="s_tr">
+      <th><strong>事業内容</strong></th>
       <td><%= @kyujin.jigyou %></td>
-  </tr>
-  <tr class="s_tr">
-      <th><strong>所在地</strong></th>
+    </tr>
+
+    <tr class="s_tr">
+      <th><strong>郵便番号</strong></th>
+      <td><%= @kyujin.yubin %></td>
+    </tr>
+
+    <tr class="s_tr">
+      <th><strong>住所</strong></th>
       <td><%= @kyujin.jusyo %></td>
-</tr>
-<tr class="s_tr">
-      <th><strong>勤務地</strong></th>
-      <td><%= @kyujin.kinmuti %></td>
-</tr>
-<tr class="s_tr">
+    </tr>
+
+    <tr class="s_tr">
       <th><strong>職種</strong></th>
       <td><%= @kyujin.syokusyu %></td>
-</tr>
-<tr class="s_tr">
-      <th><strong>採用人数</strong></th>
-      <td><%= @kyujin.bosyu %></td>
-</tr>
-<tr class="s_tr">
+    </tr>
+
+    <tr class="s_tr">
+      <th><strong>求人数</strong></th>
+      <td><%= @kyujin.bosyu %>
+      <%= "若干名" if @kyujin.jakan %></td>
+    </tr>
+
+    <tr class="s_tr">
+      <th><strong>仕事内容</strong></th>
+      <td><%= @kyujin.shigoto %></td>
+    </tr>
+
+    <tr class="s_tr">
+      <th><strong>勤務先</strong></th>
+      <td>
+        <%= "本社" if @kyujin.honsyaz %>
+        <%= "支店" if @kyujin.shitenz %>
+        <%= "工場" if @kyujin.coujous %>
+        <%= @kyujin.others %>
+      </td>
+
+    <tr class="s_tr">
+      <th><strong>従業員数</strong></th>
+      <td><%= @kyujin.zyugyoin %></td>
+    </tr>
+
+    <tr class="s_tr">
+      <th><strong>勤務時間</strong></th>
+      <td><%= @kyujin.kinmuzikan %></td>
+    </tr>
+
+    <tr class="s_tr">
       <th><strong>給与</strong></th>
       <td><%= @kyujin.kyuyo %></td>
-</tr>
-<tr class="s_tr">
+    </tr>
+
+    <tr class="s_tr">
+      <th><strong>手当</strong></th>
+      <td><%= @kyujin.teate %></td>
+    </tr>
+
+    <tr class="s_tr">
+      <th><strong>応募書類</strong></th>
+      <td><%= @kyujin.oubo %></td>
+    </tr>
+
+    <tr class="s_tr">
+      <th><strong>応募締め切り</strong></th>
+      <td><%= @kyujin.kikan %></td>
+    </tr>
+
+    <tr class="s_tr">
+      <th><strong>選考方法</strong></th>
+      <td><%= @kyujin.senko %></td>
+    </tr>
+
+    <tr class="s_tr">
+      <th><strong>履歴書</strong></th>
+      <td><%= @kyujin.rirekisyo %></td>
+    </tr>
+
+    <tr class="s_tr">
       <th><strong>備考</strong></th>
-      <td><%= @kyujin.biko %></td>
-  </tr>
+      <td><%= safe_join(@kyujin.biko.split("\n"),tag(:br)) %></td>
+     </tr>
   </table>
 </div>
 
-<div class="back">
+<div class="s_back">
 <%= link_to "戻る", :back %> 
 </div>
 
-<div class="action">
-<%= link_to '送信', kyujins_path %>
+<div class="s_submit">
+<%= link_to '送信', kyujins_confirmation_path %>
 </div>
 
-<div class="step" >
-<div class="proc-step" id="proc-step-input">1&nbsp;情報入力</div>
-<div class="proc-step" id="proc-step-confirm">2&nbsp;確認内容</div>
-<div class="proc-step" id="proc-step-finish">3&nbsp;完了</div>
+<div class="pageFooter">
+  <img src="http://www.icc.core.ac.jp/1549001753/">
+</div>
 </div>
